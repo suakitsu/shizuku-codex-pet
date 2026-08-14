@@ -1,37 +1,67 @@
 # Sawatari Shizuku Codex Pets and Windows Skin
 
-An unofficial, non-commercial Codex Desktop customization project inspired by Sawatari Shizuku from *Bishoujo Mangekyou -Wasurenagusa to Eien no Shoujo-*. This repository provides three animated v2 pets and hosts the companion forget-me-not Windows skin release.
+<p align="center">
+  <a href="./README.md">中文</a> · <strong>English</strong>
+</p>
+
+<p align="center">
+  Three animated Codex Desktop v2 pets + a forget-me-not Windows theme<br>
+  Independent installs · Native interactions · Transparent pet support · Complete appearance restore
+</p>
+
+> Unofficial, non-commercial fan project. This project is not affiliated with, sponsored by, or endorsed by OpenAI, Codex, ωstar, or the character rights holders.
+
+## What this repository provides
+
+| Component | Included | Platform | Location |
+| --- | --- | --- | --- |
+| Codex v2 pets | Full-body expressive, pixel, and Q-style editions | Environments that support Codex Desktop v2 pets | Source files in `pets/` + the `v1.0.0` release |
+| Shizuku Windows skin | Hero artwork, forget-me-not palette, signature, flower mark, and bottom-right polaroid | Windows 10/11 | Standalone installer in the `skin-v1.0.0` release |
+
+The default branch contains the three pet source folders and project documentation. The Windows skin's installer, theme files, tests, and asset notice are packaged in a standalone release ZIP. The pets and skin do not depend on each other, so either component can be installed by itself.
 
 ## Downloads
 
-- [Pets v1.0.0](https://github.com/suakitsu/shizuku-codex-pet/releases/tag/v1.0.0): `shizuku-codex-pets-v1.0.0.zip`
-- [Windows skin v1.0.0](https://github.com/suakitsu/shizuku-codex-pet/releases/tag/skin-v1.0.0): `Shizuku-Codex-Skin-Windows-v1.0.0.zip`
+| Component | Version | Files |
+| --- | --- | --- |
+| [Three pets](https://github.com/suakitsu/shizuku-codex-pet/releases/tag/v1.0.0) | v1.0.0 | `shizuku-codex-pets-v1.0.0.zip` and its `.sha256` file |
+| [Windows skin](https://github.com/suakitsu/shizuku-codex-pet/releases/tag/skin-v1.0.0) | v1.0.0 | `Shizuku-Codex-Skin-Windows-v1.0.0.zip` and its `.sha256` file |
 
-Download the named ZIP from the relevant release, not GitHub's automatic Source code archive. The pets and skin work independently.
+Download the named ZIP in the table, not GitHub's automatically generated Source code archive.
 
-## Pets
+## Install the pets
 
-| Folder | Edition |
-| --- | --- |
-| `shizuku` | Full-body expressive |
-| `shizuku-pixel` | Pixel |
-| `shizuku-q` | Super-deformed Q style |
+All three pets use the Codex Desktop v2 sprite format and include the standard animations plus sixteen clockwise look directions:
 
-All three pets include the standard Codex v2 animations and sixteen clockwise look directions.
+| Folder | Display name | Style |
+| --- | --- | --- |
+| `shizuku` | Shizuku | Full-body expressive |
+| `shizuku-pixel` | Shizuku · Pixel | Full-body pixel art |
+| `shizuku-q` | Shizuku · Q | Super-deformed Q style |
 
-### Install the pets
+1. Download and extract `shizuku-codex-pets-v1.0.0.zip`.
+2. Copy the pet folders you want into `%USERPROFILE%\.codex\pets\`.
+3. If `CODEX_HOME` is set, use `%CODEX_HOME%\pets\` instead.
+4. Reopen the pet. If Codex Desktop was already running and does not refresh, restart Codex.
 
-Extract `shizuku-codex-pets-v1.0.0.zip`, then copy the `shizuku`, `shizuku-pixel`, and `shizuku-q` folders into:
+The directory should look like this. Keep each `pet.json` and `spritesheet.webp` together in the same folder.
 
 ```text
-%USERPROFILE%\.codex\pets\
+.codex/pets/
+├── shizuku/
+│   ├── pet.json
+│   └── spritesheet.webp
+├── shizuku-pixel/
+│   ├── pet.json
+│   └── spritesheet.webp
+└── shizuku-q/
+    ├── pet.json
+    └── spritesheet.webp
 ```
 
-If `CODEX_HOME` is set, use `%CODEX_HOME%\pets\` instead. Keep `pet.json` and `spritesheet.webp` together inside each pet folder. Reopen the pet or restart Codex Desktop after installing.
+## Install the Windows skin
 
-## Windows skin
-
-The skin is based on [Fei-Away/Codex-Dream-Skin](https://github.com/Fei-Away/Codex-Dream-Skin). It adds Shizuku hero artwork, a forget-me-not palette, signature, flower mark, and polaroid while preserving native Codex interactions and transparent pet windows.
+The skin is based on [Fei-Away/Codex-Dream-Skin](https://github.com/Fei-Away/Codex-Dream-Skin) and targets the official Microsoft Store Codex desktop app. It coordinates the sidebar, title bar, cards, composer, menus, editor, and terminal while keeping native controls interactive and preventing an opaque theme background from appearing behind `/avatar-overlay` pet windows.
 
 ### Requirements
 
@@ -40,19 +70,46 @@ The skin is based on [Fei-Away/Codex-Dream-Skin](https://github.com/Fei-Away/Cod
 - Node.js 22 or newer
 - Close Codex before installation
 
-### Install the skin
+### Install and restore
 
-1. Extract `Shizuku-Codex-Skin-Windows-v1.0.0.zip` completely.
+1. Download and fully extract `Shizuku-Codex-Skin-Windows-v1.0.0.zip`.
 2. Double-click `Install Shizuku Codex Skin.cmd`.
 3. Approve the Codex restart when prompted.
 4. Use the desktop `Shizuku Codex Skin` shortcut afterward.
 
-The installer backs up the relevant appearance configuration. It does not modify API keys, Base URLs, accounts, chats, projects, or pet files. To restore the official appearance, double-click `Restore Shizuku Codex Skin.cmd` or use the desktop `Shizuku Codex Skin - Restore` shortcut.
+The installer backs up the relevant appearance configuration first. To restore the official appearance, double-click `Restore Shizuku Codex Skin.cmd` or use the desktop `Shizuku Codex Skin - Restore` shortcut.
+
+### Safety scope
+
+- CDP binds only to the local loopback address `127.0.0.1`.
+- The installer does not modify WindowsApps, `app.asar`, the official package, or its code signature.
+- It does not modify API keys, Base URLs, accounts, chats, projects, or pet files.
+- Avoid running untrusted local software while the skin is active.
+
+## Verify a download
+
+Each release includes a matching `.sha256` file. Run the following in PowerShell:
+
+```powershell
+Get-FileHash -Algorithm SHA256 .\Shizuku-Codex-Skin-Windows-v1.0.0.zip
+Get-Content .\Shizuku-Codex-Skin-Windows-v1.0.0.zip.sha256
+```
+
+The two hashes must match exactly. Use the same process for the pets archive.
+
+## Repository layout
+
+```text
+.
+├── pets/                 # Source files for the three Codex v2 pets
+├── ASSET_LICENSE.md      # Pet artwork terms and third-party rights exclusions
+├── LICENSE               # Repository code and documentation license
+├── README.md             # Chinese documentation
+└── README.en.md          # English documentation
+```
 
 ## Notice and licenses
 
-This is an unofficial, non-commercial fan project. It is not affiliated with or endorsed by OpenAI, Codex, ωstar, the original creators, or other rights holders. Sawatari Shizuku, the title, character design, setting, trademarks, and all underlying franchise rights belong to their respective owners and are not licensed by this repository.
+Sawatari Shizuku, the title, character design, setting, trademarks, and all underlying franchise rights belong to their respective rights holders. This repository does not claim or license those rights.
 
-No official reference images, game-extracted assets, official logos, commercial game files, generation logs, prompts, or private working records are included in the repository. See [ASSET_LICENSE.md](ASSET_LICENSE.md) for the pet visual asset terms and exclusions. Character artwork in the skin is governed by the `ASSET_LICENSE.md` inside its ZIP. See [LICENSE](LICENSE) for the documentation license.
-
-中文说明：[README.md](README.md)
+The repository does not contain official reference images, game-extracted assets, official logos, commercial game files, generation logs, prompts, or private working records. See [ASSET_LICENSE.md](ASSET_LICENSE.md) for the pet artwork terms and third-party rights exclusions. Character artwork in the skin is governed by the `ASSET_LICENSE.md` inside its ZIP. See [LICENSE](LICENSE) for the repository code and documentation license.
