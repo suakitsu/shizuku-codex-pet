@@ -28,3 +28,7 @@ franchise into open content.
 This is an unofficial, non-commercial fan project. No official reference
 images, game-extracted artwork, official logos, or commercial game files are
 included in this repository.
+
+The separately hosted `Shizuku-Codex-Skin-Windows-v1.0.0.zip` release asset is
+not covered by this license. Its character artwork is governed by the
+`ASSET_LICENSE.md` included inside that archive.
